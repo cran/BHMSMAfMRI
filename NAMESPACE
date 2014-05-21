@@ -1,0 +1,4 @@
+exportPattern("^[[:alpha:]]+")
+import(fmri)
+import(AnalyzeFMRI)
+import(wavethresh)
