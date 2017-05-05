@@ -30,7 +30,7 @@ wave.family="DaubLeAsymm", filter.number=6, bc="periodic")
 
 \details{The wavelet decomposition is performed by using R package 'wavethresh'. For details, check wavethresh package help.}
 
-\author{Nilotpal Sanyal <nsanyal_v@isical.ac.in>, Marco Ferreira <marf@vt.edu>
+\author{Nilotpal Sanyal <nisanyal@ucsd.edu>, Marco Ferreira <marf@vt.edu>
 }
 
 \examples{

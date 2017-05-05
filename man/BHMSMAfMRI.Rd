@@ -1,11 +1,10 @@
 \name{BHMSMAfMRI-package}
 
-\alias{BHMSMAfMRI-package}
 \alias{BHMSMAfMRI}
 
 \docType{package}
 
-\title{Bayesian hierarchical multi-subject multiscale analysis of functional MRI data}
+\title{Bayesian Hierarchical Multi-Subject Multiscale Analysis of Functional MRI Data}
 
 \description{Performs BHMSMA (Sanyal & Ferreira, 2012) of fMRI data using wavelet based prior that borrows strength across subjects and returns posterior smoothed versions of the fMRI data and samples from the posterior distribution. Currently considers 2D slices only.
 }
@@ -14,15 +13,15 @@
 \tabular{ll}{
 Package: \tab BHMSMAfMRI\cr
 Type: \tab Package\cr
-Version: \tab 1.0\cr
-Date: \tab 2014-05-21\cr
+Version: \tab 1.1\cr
+Date: \tab 2017-05-03\cr
 License: \tab GPL (>= 2)\cr
 }
 %~~ An overview of how to use the package, including the most important ~~
 %~~ functions ~~
 }
 
-\author{Nilotpal Sanyal <nsanyal_v@isical.ac.in>, Marco Ferreira <marf@vt.edu>}
+\author{Nilotpal Sanyal <nisanyal@ucsd.edu>, Marco Ferreira <marf@vt.edu>}
 
 \references{
 Sanyal, Nilotpal, and Ferreira, Marco A.R. (2012). Bayesian hierarchical multi-subject multiscale analysis of functional MRI data. Neuroimage, 63, 3, 1519-1531.

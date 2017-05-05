@@ -1,0 +1,9 @@
+BHMSMAfMRI v1.1 (Release Date: 2017-05-04)
+================
+
+Changes:
+
+* Changes in main author (corresponding author) email and affiliation 
+
+* Changes in the function BHMSMA(): The function cmpfun from the package Compiler is incorporated within the function BHMSMA to increase computaional speed. Package Compiler is included in the list of dependencies in the DESCRIPTION file.
+

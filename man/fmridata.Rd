@@ -13,7 +13,7 @@
 data(fmridata)
 }
 
-\format{A list containing the following.
+\format{A list containing the following. 
  \itemize{
   \item{grid }{ =32. The image dimension is 32 by 32.}
   \item{nsubject }{ =3.}

@@ -28,7 +28,7 @@ read.fmridata( directory, format, prefix, nimages, dim.image, nii=TRUE )
 
 \details{The function uses package 'fmri' for reading from fMRI data files. For details, check fmri package help.}
 
-\author{Nilotpal Sanyal <nsanyal_v@isical.ac.in>, Marco Ferreira <marf@vt.edu>
+\author{Nilotpal Sanyal <nisanyal@ucsd.edu>, Marco Ferreira <marf@vt.edu>
 }
 
 \seealso{

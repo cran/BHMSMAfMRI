@@ -43,7 +43,7 @@ Morris, J.S. et al. (2011). Automated analysis of quantitative image data using 
 application to proteomic data. Ann. Appl. Stat. 5, 894-923.
 }
 
-\author{Nilotpal Sanyal <nsanyal_v@isical.ac.in>, Marco Ferreira <marf@vt.edu>
+\author{Nilotpal Sanyal <nisanyal@ucsd.edu>, Marco Ferreira <marf@vt.edu>
 }
 
 \examples{

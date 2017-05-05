@@ -1,43 +1,43 @@
 
-BHMSMA <- function( nsubject, grid, Data, DesignMatrix, TrueCoeff=NULL, analysis, wave.family="DaubLeAsymm", filter.number=6, bc="periodic")
+BHMSMA = function( nsubject, grid, Data, DesignMatrix, TrueCoeff=NULL, analysis, wave.family="DaubLeAsymm", filter.number=6, bc="periodic")
 {
 
  if(analysis == "multi")
  {
-   glmDat <- glmcoeff( nsubject, grid, Data, DesignMatrix )
+   glmDat = cmpfun(glmcoeff)( nsubject, grid, Data, DesignMatrix )
 
-   wavecoeff.glmDat <- waveletcoeff(nsubject, grid, glmDat$GLMCoeffStandardized, wave.family, filter.number, bc)
+   wavecoeff.glmDat = waveletcoeff(nsubject, grid, glmDat$GLMCoeffStandardized, wave.family, filter.number, bc)
 
-   hyparEst <- hyperparamest( nsubject, grid, wavecoeff.glmDat$WaveletCoefficientMatrix, analysis="multi" )
+   hyparEst = cmpfun(hyperparamest)( nsubject, grid, wavecoeff.glmDat$WaveletCoefficientMatrix, analysis="multi" )
 
-   pklj.bar <- pikljbar(nsubject, grid, wavecoeff.glmDat$WaveletCoefficientMatrix, hyparEst$hyperparam, analysis="multi")
+   pklj.bar = cmpfun(pikljbar)(nsubject, grid, wavecoeff.glmDat$WaveletCoefficientMatrix, hyparEst$hyperparam, analysis="multi")
 
-   postwavelet <- postwaveletcoeff( nsubject, grid, wavecoeff.glmDat$WaveletCoefficientMatrix, hyparEst$hyperparam, pklj.bar=pklj.bar$pklj.bar, analysis="multi" )
+   postwavelet = cmpfun(postwaveletcoeff)( nsubject, grid, wavecoeff.glmDat$WaveletCoefficientMatrix, hyparEst$hyperparam, pklj.bar=pklj.bar$pklj.bar, analysis="multi" )
 
-   postglm <- postglmcoeff(nsubject, grid, glmDat$GLMCoeffStandardized, postwavelet$PostMeanWaveletCoeff, wave.family, filter.number, bc)
+   postglm = cmpfun(postglmcoeff)(nsubject, grid, glmDat$GLMCoeffStandardized, postwavelet$PostMeanWaveletCoeff, wave.family, filter.number, bc)
  }
  
  if(analysis == "single")
  {
-   glmDat <- glmcoeff( nsubject, grid, Data, DesignMatrix )
+   glmDat = cmpfun(glmcoeff)( nsubject, grid, Data, DesignMatrix )
 
-   wavecoeff.glmDat <- waveletcoeff(nsubject, grid, glmDat$GLMCoeffStandardized, wave.family, filter.number, bc)
+   wavecoeff.glmDat = waveletcoeff(nsubject, grid, glmDat$GLMCoeffStandardized, wave.family, filter.number, bc)
 
-   hyparEst <- hyperparamest( nsubject, grid, wavecoeff.glmDat$WaveletCoefficientMatrix, analysis="single" )
+   hyparEst = cmpfun(hyperparamest)( nsubject, grid, wavecoeff.glmDat$WaveletCoefficientMatrix, analysis="single" )
 
-   pklj.bar <- pikljbar(nsubject, grid, wavecoeff.glmDat$WaveletCoefficientMatrix, hyparEst$hyperparam, analysis="single")
+   pklj.bar = cmpfun(pikljbar)(nsubject, grid, wavecoeff.glmDat$WaveletCoefficientMatrix, hyparEst$hyperparam, analysis="single")
 
-   postwavelet <- postwaveletcoeff( nsubject, grid, wavecoeff.glmDat$WaveletCoefficientMatrix, hyparEst$hyperparam, pklj.bar=pklj.bar$pklj.bar, analysis="single" )
+   postwavelet = cmpfun(postwaveletcoeff)( nsubject, grid, wavecoeff.glmDat$WaveletCoefficientMatrix, hyparEst$hyperparam, pklj.bar=pklj.bar$pklj.bar, analysis="single" )
 
-   postglm <- postglmcoeff(nsubject, grid, glmDat$GLMCoeffStandardized, postwavelet$PostMeanWaveletCoeff, wave.family, filter.number, bc)
+   postglm = cmpfun(postglmcoeff)(nsubject, grid, glmDat$GLMCoeffStandardized, postwavelet$PostMeanWaveletCoeff, wave.family, filter.number, bc)
  }
  
  if(! is.null(TrueCoeff))
  {
-  MSE <- c()
+  MSE = c()
   for(i in 1:nsubject)
   {
-   MSE[i] <- sum ( ( as.vector(TrueCoeff[i,,]/glmDat$GLMEstimatedSE[i,,]) - as.vector(postglm$GLMcoeffposterior[i,,]) )^2 )
+   MSE[i] = sum ( ( as.vector(TrueCoeff[i,,]/glmDat$GLMEstimatedSE[i,,]) - as.vector(postglm$GLMcoeffposterior[i,,]) )^2 )
   }
  }
  

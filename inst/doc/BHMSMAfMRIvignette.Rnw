@@ -77,9 +77,9 @@
 \begin{center}
 \fontsize{17pt}{.5em}\textbf{BHMSMAfMRI User Manual}\\ \vspace{.3cm}
 \large{Nilotpal Sanyal}\\
-\small{Bayesian and Interdisciplinary Research Unit\\*
-       Indian Statistical Institute, Calcutta, India\\*
-			 nsanyal\_v$@$isical.ac.in}
+\small{Department of Radiology\\*
+       University of California, San Diego, USA\\*
+			 nisanyal$@$ucsd.edu}
 \end{center}			
 \vspace*{1cm}
 
