@@ -1,6 +1,5 @@
 exportPattern("^[[:alpha:]]+")
-import(fmri)
-import(AnalyzeFMRI)
+importFrom("oro.nifti","readAFNI","readANALYZE","readNIfTI")
 import(wavethresh)
 import(compiler)
 importFrom("stats", "anova", "lm", "nlminb", "qnorm", "rbinom", "rnorm")

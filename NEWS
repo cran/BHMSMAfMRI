@@ -1,9 +1,19 @@
+BHMSMAfMRI v1.2 (Release Date: 2019-05-11)
+================
+
+Changes from v1.1:
+
+* Changes in main author (corresponding author) email and affiliation.
+
+* Changes in package dependency: Dependency on the packages "fmri" and "ANALYZEfmri" were removed, and in that place, dependency on the package "oro.nifti" was added. The only function updated according with the above changes is read.fmridata.
+
+
 BHMSMAfMRI v1.1 (Release Date: 2017-05-04)
 ================
 
-Changes:
+Changes from v1.0:
 
-* Changes in main author (corresponding author) email and affiliation 
+* Changes in main author (corresponding author) email and affiliation. 
 
 * Changes in the function BHMSMA(): The function cmpfun from the package Compiler is incorporated within the function BHMSMA to increase computaional speed. Package Compiler is included in the list of dependencies in the DESCRIPTION file.
 

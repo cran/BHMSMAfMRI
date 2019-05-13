@@ -32,7 +32,7 @@ read.fmridata( directory, format, prefix, nimages, dim.image, nii=TRUE )
 }
 
 \seealso{
-\link[AnalyzeFMRI]{f.read.analyze.volume}, \link[AnalyzeFMRI]{f.read.nifti.volume}, \link[fmri]{read.AFNI}
+\link[oro.nifti]{readANALYZE}, \link[oro.nifti]{readNIfTI}, \link[oro.nifti]{readAFNI}
 }
 
 \examples{
