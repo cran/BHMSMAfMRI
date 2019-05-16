@@ -13,15 +13,15 @@
 \tabular{ll}{
 Package: \tab BHMSMAfMRI\cr
 Type: \tab Package\cr
-Version: \tab 1.1\cr
-Date: \tab 2017-05-03\cr
+Version: \tab 1.3\cr
+Date: \tab 2019-05-15\cr
 License: \tab GPL (>= 2)\cr
 }
 %~~ An overview of how to use the package, including the most important ~~
 %~~ functions ~~
 }
 
-\author{Nilotpal Sanyal <nisanyal@ucsd.edu>, Marco Ferreira <marf@vt.edu>}
+\author{Nilotpal Sanyal <nsanyal@stanford.edu>, Marco Ferreira <marf@vt.edu>}
 
 \references{
 Sanyal, Nilotpal, and Ferreira, Marco A.R. (2012). Bayesian hierarchical multi-subject multiscale analysis of functional MRI data. Neuroimage, 63, 3, 1519-1531.

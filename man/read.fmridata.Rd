@@ -3,7 +3,7 @@
 \alias{read.fmridata}
 %- Also NEED an '\alias' for EACH other topic documented here.
 
-\title{Read fMRI data from fMRI image files (Adopted from 'fmri').
+\title{Read fMRI data from fMRI image files.
 }
 
 \description{Reads fMRI data from fMRI image files into a 4D array.
@@ -26,9 +26,9 @@ read.fmridata( directory, format, prefix, nimages, dim.image, nii=TRUE )
   \item{fmridata }{An array of dimension (dim.image, nimages), containing the image data for all images/time-points.}
 }
 
-\details{The function uses package 'fmri' for reading from fMRI data files. For details, check fmri package help.}
+\details{The function uses package 'oro.nifti' for reading from fMRI data files. For details, check oro.nifti package help.}
 
-\author{Nilotpal Sanyal <nisanyal@ucsd.edu>, Marco Ferreira <marf@vt.edu>
+\author{Nilotpal Sanyal <nsanyal@stanford.edu>, Marco Ferreira <marf@vt.edu>
 }
 
 \seealso{

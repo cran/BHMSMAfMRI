@@ -29,7 +29,7 @@ glmcoeff(nsubject, grid, Data, DesignMatrix)
 Friston, K.J., Holmes, A.P., Worsley, K.J., Poline, J., Frith, C.D., Frackowiak, R.S.J., 1994. Statistical parametric maps in functional imaging: a general linear approach. Hum. Brain Mapp. 2 (4), 189-210.
 }
 
-\author{Nilotpal Sanyal <nisanyal@ucsd.edu>, Marco Ferreira <marf@vt.edu>
+\author{Nilotpal Sanyal <nsanyal@stanford.edu>, Marco Ferreira <marf@vt.edu>
 }
 
 %\note{

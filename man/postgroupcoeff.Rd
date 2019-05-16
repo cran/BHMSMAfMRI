@@ -34,7 +34,7 @@ wave.family="DaubLeAsymm", filter.number=6, bc="periodic" )
 Sanyal, Nilotpal, and Ferreira, Marco A.R. (2012). Bayesian hierarchical multi-subject multiscale analysis of functional MRI data. Neuroimage, 63, 3, 1519-1531.
 }
 
-\author{Nilotpal Sanyal <nisanyal@ucsd.edu>, Marco Ferreira <marf@vt.edu>
+\author{Nilotpal Sanyal <nsanyal@stanford.edu>, Marco Ferreira <marf@vt.edu>
 }
 
 \examples{
