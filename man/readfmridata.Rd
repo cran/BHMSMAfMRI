@@ -1,16 +1,17 @@
-\name{read.fmridata}
+\name{readfmridata}
 
-\alias{read.fmridata}
+\alias{readfmridata}
 %- Also NEED an '\alias' for EACH other topic documented here.
 
-\title{Read fMRI data from fMRI image files.
+\title{Import fMRI data from various fMRI image files
 }
 
-\description{Reads fMRI data from fMRI image files into a 4D array.
+\description{\code{readfmridata} reads and imports fMRI data from various fMRI image files (Analyze, NIFTI and AFNI) into a 4D array. It is just a convenient wrapper around the data importing functions provided by the \pkg{oro.nifti} package.
 }
 
 \usage{
-read.fmridata( directory, format, prefix, nimages, dim.image, nii=TRUE )
+readfmridata( directory, format, prefix, nimages, dim.image, 
+  nii=TRUE )
 }
 
 \arguments{
@@ -26,15 +27,27 @@ read.fmridata( directory, format, prefix, nimages, dim.image, nii=TRUE )
   \item{fmridata }{An array of dimension (dim.image, nimages), containing the image data for all images/time-points.}
 }
 
-\details{The function uses package 'oro.nifti' for reading from fMRI data files. For details, check oro.nifti package help.}
+\details{The function uses package \pkg{oro.nifti} for reading from fMRI data files.}
 
-\author{Nilotpal Sanyal <nsanyal@stanford.edu>, Marco Ferreira <marf@vt.edu>
+\author{Nilotpal Sanyal, Marco Ferreira
+Maintainer: Nilotpal Sanyal <nilotpal.sanyal@gmail.com>
 }
 
 \seealso{
-\link[oro.nifti]{readANALYZE}, \link[oro.nifti]{readNIfTI}, \link[oro.nifti]{readAFNI}
+\code{\link[oro.nifti]{readANALYZE}}, \code{\link[oro.nifti]{readNIfTI}}, \code{\link[oro.nifti]{readAFNI}}, \code{\link{BHMSMA}}
 }
 
 \examples{
-# See package vignette.
+# import simmulated fMRI data from image files provided within this package
+fpath <- system.file("extdata", package="BHMSMAfMRI")
+untar(paste0(fpath,"/fmridata.tar"), exdir=tempdir())
+data <- array(dim=c(3,32,32,9))
+for(subject in 1:3)
+{
+  directory <- paste0(tempdir(),"/fmridata","/s0",subject,"/")
+  a <- readfmridata(directory, format="Analyze", prefix=paste0("s0",subject,"_t"),
+  nimages=9, dim.image=c(32,32,1))
+  data[subject,,,] <- a[,,1,]
+}
+dim(a)
 }
