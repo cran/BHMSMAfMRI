@@ -1,8 +1,5 @@
 
-BHMSMAfMRI v2.1 
-================
-
-Changes from v2.0:
+# BHMSMAfMRI v2.1 
 
 * Changed package URL.
 
@@ -11,10 +8,7 @@ Changes from v2.0:
 * Added NEWS file properly.
 
 
-BHMSMAfMRI v2.0 (Release Date: 2022-09-03)
-================
-
-Changes from v1.3:
+# BHMSMAfMRI v2.0
 
 * Major computational upgrade: The core computational parts of most of the functions were written in C++ using Rcpp and RcppArmadillo libraries. This led to a major boost in computational speed.
 
@@ -32,30 +26,20 @@ Changes from v1.3:
 		  The vignette is updated.
 
 
-
-BHMSMAfMRI v1.3 (Release Date: 2019-05-15)
-================
-
-Changes from v1.2:
+# BHMSMAfMRI v1.3
 
 * Fixed some issues in the function manual files.
 
-BHMSMAfMRI v1.2 (Release Date: 2019-05-13)
-================
 
-Changes from v1.1:
+# BHMSMAfMRI v1.2
 
 * Changes in main author (corresponding author) email and affiliation.
 
 * Changes in package dependency: Dependency on the packages "fmri" and "ANALYZEfmri" were removed, and in that place, dependency on the package "oro.nifti" was added. The only function updated according with the above changes is read.fmridata.
 
 
-BHMSMAfMRI v1.1 (Release Date: 2017-05-04)
-================
-
-Changes from v1.0:
+# BHMSMAfMRI v1.1
 
 * Changes in main author (corresponding author) email and affiliation. 
 
 * Changes in the function BHMSMA(): The function cmpfun from the package Compiler is incorporated within the function BHMSMA to increase computaional speed. Package Compiler is included in the list of dependencies in the DESCRIPTION file.
-

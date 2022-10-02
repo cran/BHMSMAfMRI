@@ -105,7 +105,7 @@ dim(designmat)
 
 Now, we have `truecoef` which is an array of dimension (3, 32, 32) containing the true regression coefficients, `data` which is an array of dimension (3, 32, 32, 9) containing time series of noisy observations for all the subjects and `designmat` which is the design matrix used to generate the data. Note that, the R package **neuRosim** [@neuRosim] can be used to generate fMRI data.
 
-```{r TrueCoef, fig.cap = "True regression coefficient images for the 3 subjects", fig.width=12, fig.height=4.2}
+```{r TrueCoef, fig.cap = "True regression coefficient images for the 3 subjects", fig.width=12, fig.height=4.2, fig.align="center"}
 par(mfrow=c(1,n), cex=1)
 for(subject in 1:n)
   image(truecoef[subject,,], main=paste0("Subject ",subject), 
@@ -125,7 +125,7 @@ dim(glmmap$GLMCoefSE)
 
 The output `glmmap` contains the estimated standardized regression coefficients and their standard error estimates. From now on, we focus on the 2$^\text{nd}$ regressor as the regressor of interest. Figure \@ref(fig:GLMCoef), obtained by the following code, shows the images of its standardized regression coefficients estimates for the 3 subjects.
 
-```{r GLMCoef, fig.cap = "Standardized regression coefficient estimates images for the second regressor for all subjects", fig.width=12, fig.height=4.2}
+```{r GLMCoef, fig.cap = "Standardized regression coefficient estimates images for the second regressor for all subjects", fig.width=12, fig.height=4.2, fig.align="center"}
 k <- 2
 par(mfrow=c(1,n), cex=1)
 for(subject in 1:n)
@@ -208,7 +208,7 @@ postglmmap <- postglmcoef(n, grid, glmmap$GLMCoefStandardized[,,,k],
 str(postglmmap,vec.len = 3, digits.d = 2)
 ``` 
 
-```{r PostCoef, fig.cap = "Posterior standardized regression coefficient images for the 3 subjects obtained by BHMSMA", fig.width=12, fig.height=4.2 }
+```{r PostCoef, fig.cap = "Posterior standardized regression coefficient images for the 3 subjects obtained by BHMSMA", fig.width=12, fig.height=4.2, fig.align="center" }
 par(mfrow=c(1,n), cex=1)
 for(subject in 1:n)
   image(abs(postglmmap$GLMcoefposterior[subject,,]), col=heat.colors(8),
@@ -245,8 +245,8 @@ dim(Postsamp$postdiscovery)
 
 The argument `nsample` denotes the number of samples to be drawn. We can see `postsamples` returns the posterior samples and the probabilities of posterior discovery [@morris:et:al:2011] for all the subjects. Figure \@ref(fig:PostDiscovery), obtained by the following code, shows the posterior discovery images based on the above 50 samples for the 3 subjects.
 
-```{r PostDiscovery, eval=T, fig.cap = "Posterior discovery images for the 3 subjects", fig.width=12, fig.height=4.2}
-par(mfrow=c(1,n))
+```{r PostDiscovery, eval=T, fig.cap = "Posterior discovery images for the 3 subjects", fig.width=12, fig.height=4.2, fig.align="center"}
+par(mfrow=c(1,n), cex=1)
 for(subject in 1:n)
   image(Postsamp$postdiscovery[subject,,], col=heat.colors(8),
    main=paste0("Subject ",subject))
@@ -275,7 +275,7 @@ dim(postgroup$groupcoef)
 
 Figure \@ref(fig:PostGroupCoef), obtained by the following code, shows the posterior group coefficient image for the simulated dataset.
 
-```{r PostGroupCoef, fig.cap = "Posterior group regression coefficient image",  fig.width=3, fig.height=3, fig.align="center"}
+```{r PostGroupCoef, fig.cap = "Posterior group regression coefficient image",  fig.width=2.5, fig.height=2.5, fig.align="center"}
 par(mfrow=c(1,1),cex=0.5)
 image(abs(postgroup$groupcoef),col=heat.colors(8),zlim=c(0,6))
 ```

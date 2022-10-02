@@ -13,8 +13,8 @@
 \tabular{ll}{
 Package: \tab BHMSMAfMRI\cr
 Type: \tab Package\cr
-Version: \tab 2.0\cr
-Date: \tab 2022-09-06\cr
+Version: \tab 2.1\cr
+Date: \tab 2022-10-01\cr
 License: \tab GPL (>= 2)\cr
 }
 

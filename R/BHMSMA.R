@@ -315,7 +315,7 @@ BHMSMA = function( n, grid, data, designmat, k, analysis="multi", truecoef=NULL,
 
     if(! is.null(truecoef))
     {
-        MSE = c()
+        MSE = NULL
         for(i in 1:n)
         {
             MSE[i] = sum ( ( as.vector(truecoef[i,,]/glmmap$GLMCoefSE[i,,,k]) - as.vector(postglmmap$GLMcoefposterior[i,,]) )^2 )
@@ -419,7 +419,7 @@ postgroupglmcoef = function( n, grid, glmcoefstd, postmeanwaveletcoef, wave.fami
  
     postmeanwaveletcoef = apply(postmeanwaveletcoef, 2, mean, na.rm=TRUE)
 
-    scaling = c()
+    scaling = NULL
     for(i in 1:n)
     {
         dwt = imwd(glmcoefstd[i,,], type="wavelet", family=wave.family, filter.number=filter.number, bc=bc, RetFather=TRUE, verbose=FALSE)

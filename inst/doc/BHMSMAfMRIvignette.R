@@ -32,7 +32,7 @@ designmat <- fmridata$DesignMatrix
 dim(truecoef)
 dim(designmat)
 
-## ----TrueCoef, fig.cap = "True regression coefficient images for the 3 subjects", fig.width=12, fig.height=4.2----
+## ----TrueCoef, fig.cap = "True regression coefficient images for the 3 subjects", fig.width=12, fig.height=4.2, fig.align="center"----
 par(mfrow=c(1,n), cex=1)
 for(subject in 1:n)
   image(truecoef[subject,,], main=paste0("Subject ",subject), 
@@ -44,7 +44,7 @@ names(glmmap)
 dim(glmmap$GLMCoefStandardized)
 dim(glmmap$GLMCoefSE)
 
-## ----GLMCoef, fig.cap = "Standardized regression coefficient estimates images for the second regressor for all subjects", fig.width=12, fig.height=4.2----
+## ----GLMCoef, fig.cap = "Standardized regression coefficient estimates images for the second regressor for all subjects", fig.width=12, fig.height=4.2, fig.align="center"----
 k <- 2
 par(mfrow=c(1,n), cex=1)
 for(subject in 1:n)
@@ -92,7 +92,7 @@ postglmmap <- postglmcoef(n, grid, glmmap$GLMCoefStandardized[,,,k],
            filter.number=6, bc="periodic")
 str(postglmmap,vec.len = 3, digits.d = 2)
 
-## ----PostCoef, fig.cap = "Posterior standardized regression coefficient images for the 3 subjects obtained by BHMSMA", fig.width=12, fig.height=4.2----
+## ----PostCoef, fig.cap = "Posterior standardized regression coefficient images for the 3 subjects obtained by BHMSMA", fig.width=12, fig.height=4.2, fig.align="center"----
 par(mfrow=c(1,n), cex=1)
 for(subject in 1:n)
   image(abs(postglmmap$GLMcoefposterior[subject,,]), col=heat.colors(8),
@@ -113,8 +113,8 @@ names(Postsamp)
 dim(Postsamp$samples)
 dim(Postsamp$postdiscovery)
 
-## ----PostDiscovery, eval=T, fig.cap = "Posterior discovery images for the 3 subjects", fig.width=12, fig.height=4.2----
-par(mfrow=c(1,n))
+## ----PostDiscovery, eval=T, fig.cap = "Posterior discovery images for the 3 subjects", fig.width=12, fig.height=4.2, fig.align="center"----
+par(mfrow=c(1,n), cex=1)
 for(subject in 1:n)
   image(Postsamp$postdiscovery[subject,,], col=heat.colors(8),
    main=paste0("Subject ",subject))
@@ -131,7 +131,7 @@ postgroup <- postgroupglmcoef( n, grid, glmmap$GLMCoefStandardized[,,,k],
 names(postgroup)
 dim(postgroup$groupcoef)
 
-## ----PostGroupCoef, fig.cap = "Posterior group regression coefficient image",  fig.width=3, fig.height=3, fig.align="center"----
+## ----PostGroupCoef, fig.cap = "Posterior group regression coefficient image",  fig.width=2.5, fig.height=2.5, fig.align="center"----
 par(mfrow=c(1,1),cex=0.5)
 image(abs(postgroup$groupcoef),col=heat.colors(8),zlim=c(0,6))
 
