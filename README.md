@@ -45,8 +45,8 @@ matrix. After that, the standardized regression coefficient map of a
 regressor of interest is subjected to further analysis. The function
 BHMSMA returns the posterior smoothed map of the regression
 coefficients. Below is a basic illustration of its use. For a detailed
-manual, see the package <a
-href="https://CRAN.R-project.org/package=BHMSMAfMRI"
+manual, see the package
+<a href="https://CRAN.R-project.org/package=BHMSMAfMRI"
 target="_blank">vignette</a>.
 
 ``` r
@@ -55,7 +55,6 @@ library(BHMSMAfMRI)
 #>  Welcome! Thanks for trying BHMSMAfMRI.
 #>  
 #>  Website: https://nilotpalsanyal.github.io/BHMSMAfMRI/
-#>  
 #>  Bug report: https://github.com/nilotpalsanyal/BHMSMAfMRI/issues
 
 # Read data from image files

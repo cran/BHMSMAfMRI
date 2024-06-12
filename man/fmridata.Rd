@@ -14,7 +14,7 @@ data(fmridata)
 }
 
 \format{A list containing the following. 
- \itemize{
+ \describe{
   \item{grid }{ =32. The image dimension is 32 by 32.}
   \item{nsubject }{ =3.}
   \item{TrueCoeff }{ An array of dimension (3,32,32), containing the true regression coefficients for the 3 subjects.}

@@ -1,4 +1,4 @@
-## ---- out.lines = 10, eval=F--------------------------------------------------
+## ----out.lines = 10, eval=F---------------------------------------------------
 #  library(BHMSMAfMRI)
 #  BHMSMAmulti <- BHMSMA(n, grid, data, designmat, k, "multi", truecoef)
 #  names(BHMSMAmulti)
@@ -7,7 +7,7 @@
 #  [5] "hyperparamVar"            "posteriorMixProb"
 #  [7] "Waveletcoefposterior"     "GLMcoefposterior"
 
-## ---- eval=T------------------------------------------------------------------
+## ----eval=T-------------------------------------------------------------------
 library(BHMSMAfMRI)
 fpath <- system.file("extdata", package="BHMSMAfMRI")
 untar(paste0(fpath,"/fmridata.tar"), exdir=tempdir())
@@ -24,7 +24,7 @@ for(subject in 1:n)
 }
 dim(a)
 
-## ---- eval=T------------------------------------------------------------------
+## ----eval=T-------------------------------------------------------------------
 data(fmridata)
 names(fmridata)
 truecoef <- fmridata$TrueCoeff
@@ -38,7 +38,7 @@ for(subject in 1:n)
   image(truecoef[subject,,], main=paste0("Subject ",subject), 
          col=heat.colors(8))
 
-## ---- eval=T------------------------------------------------------------------
+## ----eval=T-------------------------------------------------------------------
 glmmap <- glmcoef(n, grid, data, designmat)
 names(glmmap)
 dim(glmmap$GLMCoefStandardized)
@@ -51,13 +51,13 @@ for(subject in 1:n)
   image(abs(glmmap$GLMCoefStandardized[subject,,,k]), col=heat.colors(8),
          zlim=c(0,6), main=paste0("Subject ",subject))
 
-## ---- eval=T------------------------------------------------------------------
+## ----eval=T-------------------------------------------------------------------
 wavecoefglmmap <- waveletcoef(n, grid, glmmap$GLMCoefStandardized[,,,k], 
             wave.family="DaubLeAsymm", filter.number=6, bc="periodic")
 names(wavecoefglmmap)
 dim(wavecoefglmmap$WaveletCoefficientMatrix)
 
-## ---- eval=T--------------------------------------------------------------------------------------
+## ----eval=T---------------------------------------------------------------------------------------
 options(width = 100)
 hyperest <- hyperparamest(n, grid, wavecoefglmmap$WaveletCoefficientMatrix, 
                            analysis = "multi")
@@ -65,20 +65,20 @@ names(hyperest)
 round(hyperest$hyperparam,3)
 signif(hyperest$hyperparamVar,4)
 
-## ---- eval=T--------------------------------------------------------------------------------------
+## ----eval=T---------------------------------------------------------------------------------------
 a.kl <- hyperest$hyperparam[1] * 2^(-hyperest$hyperparam[2] * (0:4))
 b.kl <- hyperest$hyperparam[3] * 2^(-hyperest$hyperparam[4] * (0:4))
 c.kl <- hyperest$hyperparam[5] * 2^(-hyperest$hyperparam[6] * (0:4))
 round(a.kl,3)
 
-## ---- eval=T--------------------------------------------------------------------------------------
+## ----eval=T---------------------------------------------------------------------------------------
 pkljbar <- postmixprob(n, grid, wavecoefglmmap$WaveletCoefficientMatrix, 
                         hyperest$hyperparam, analysis = "multi")
 names(pkljbar)
 dim(pkljbar$pkljbar)
 round(pkljbar$pkljbar[1,1:10],4)
 
-## ---- eval=T--------------------------------------------------------------------------------------
+## ----eval=T---------------------------------------------------------------------------------------
 postwavecoefglmmap <- postwaveletcoef(n, grid, 
                          wavecoefglmmap$WaveletCoefficientMatrix, 
                  hyperest$hyperparam, pkljbar$pkljbar, analysis = "multi")
@@ -86,7 +86,7 @@ names(postwavecoefglmmap)
 dim(postwavecoefglmmap$PostMeanWaveletCoef)
 dim(postwavecoefglmmap$PostMedianWaveletCoeff)
 
-## ---- eval=T--------------------------------------------------------------------------------------
+## ----eval=T---------------------------------------------------------------------------------------
 postglmmap <- postglmcoef(n, grid, glmmap$GLMCoefStandardized[,,,k], 
          postwavecoefglmmap$PostMeanWaveletCoef, wave.family="DaubLeAsymm", 
            filter.number=6, bc="periodic")
@@ -98,14 +98,14 @@ for(subject in 1:n)
   image(abs(postglmmap$GLMcoefposterior[subject,,]), col=heat.colors(8),
          zlim=c(0,6), main=paste0("Subject ",subject))
 
-## ---- eval=T--------------------------------------------------------------------------------------
+## ----eval=T---------------------------------------------------------------------------------------
 MSE <- c()
 for (i in 1:n) 
  MSE[i] <- sum((as.vector(truecoef[i,,]/glmmap$GLMCoefSE[i,,,2])  
                 - as.vector(postglmmap$GLMcoefposterior[i,,]))^2)
 round(MSE,3)
 
-## ---- eval=T, fig.width=12, fig.height=4.2--------------------------------------------------------
+## ----eval=T, fig.width=12, fig.height=4.2---------------------------------------------------------
 Postsamp <- postsamples( nsample=50, n, grid, glmmap$GLMCoefStandardized[,,,k],
                wavecoefglmmap$WaveletCoefficientMatrix,  hyperest$hyperparam, 
                pkljbar$pkljbar, "multi", seed=123)
@@ -119,13 +119,13 @@ for(subject in 1:n)
   image(Postsamp$postdiscovery[subject,,], col=heat.colors(8),
    main=paste0("Subject ",subject))
 
-## ---- eval=T--------------------------------------------------------------------------------------
+## ----eval=T---------------------------------------------------------------------------------------
 postsd <- array(dim=c(n,grid,grid))
 for(subject in 1:n)
  postsd[subject,,] <- apply(Postsamp$samples[subject,,,], 1:2, sd)
                              round(postsd[1,1:5,1:5],3)
 
-## ---- eval=T--------------------------------------------------------------------------------------
+## ----eval=T---------------------------------------------------------------------------------------
 postgroup <- postgroupglmcoef( n, grid, glmmap$GLMCoefStandardized[,,,k], 
                                postwavecoefglmmap$PostMeanWaveletCoef)
 names(postgroup)

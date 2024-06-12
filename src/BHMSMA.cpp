@@ -2,6 +2,7 @@
 
 #include <RcppArmadillo.h>
 // [[Rcpp::depends(RcppArmadillo)]]
+#include <cmath>  // Ensure you include the cmath library for fabs
 using namespace Rcpp;
 using namespace arma;
  
@@ -56,7 +57,7 @@ double minus_ll(double C0, double C1, double C2, double C3, double C4, double C5
 			double b_l = C2 * pow(2,-C3*l);
 			double expect_w = std::min( 1.0, a_l/(a_l+b_l) );
 			double c_l = C4 * pow(2,-C5*l);
-			if (abs(d)<=39.6) 
+			if (fabs(d)<=39.6) 
 			{
 			aux1 = log(  exp( log(expect_w * pow(1+c_l,-.5)) - 0.5*pow(d,2)/(1+c_l) ) + exp( log(1-expect_w) - 0.5*pow(d,2) )  );  
 			} else 
@@ -140,7 +141,7 @@ arma::vec LL(arma::vec w, uword l, uword j, uword n, arma::mat waveletcoefmat, d
 	{
 		if(l==0) d = waveletcoefmat(i,j-1); else d = waveletcoefmat(i, sum1+j-1);
 		
-		if (abs(d) <= 39.6)
+		if (fabs(d) <= 39.6)
 	    {
 	      aux1 = log(  exp( log(w * pow(1+c_l,-.5)) - 0.5*pow(d,2)/(1+c_l) ) + exp( log(1-w) - 0.5*pow(d,2) )  );
 	    } else

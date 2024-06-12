@@ -1,4 +1,8 @@
 
+# BHMSMAfMRI v2.2 
+
+* Technical: Fixed a warning: used fabs() in BHMSMA.cpp lines 60 and 144 (from cmath library).Commneted out C++11 specification in makevars files.
+
 # BHMSMAfMRI v2.1 
 
 * Changed package URL.
